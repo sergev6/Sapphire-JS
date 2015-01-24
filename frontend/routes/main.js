@@ -1,28 +1,28 @@
 var general = require('./../model/general');
-var category = require('./../model/category'); 
+var category = require('./../model/category');
 var util = require('util');
 
 var main = {
-    
+
 	get_header: function(req, cb) {
 		var output = '';
 		var querystring = req.url.split('?');
 		var found = 0;
 		var breadcrumb = [];
 		var rparam = [];
-		
 
-		breadcrumb[0] = '<a href="/">Home</a>';
+
+		breadcrumb[0] = '<a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/">Home</a>';
 		category.by_id("", function(err, result) {
 			if (!err) {
 				querystring = querystring[0].replace('/','',querystring[0]);
 				for(var x in result) {
 					if (result[x].url_key == querystring) {
-						output += '<li class="active"><a href="/' + result[x].url_key + '"><i id="ic"></i>' + result[x].name + '</a></li>';
+						output += '<li class="active"><a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/' + result[x].url_key + '"><i id="ic"></i>' + result[x].name + '</a></li>';
 						breadcrumb[1] = result[x].name;
 						found = 1;
 					} else {
-						output += '<li class=""><a href="/' + result[x].url_key + '"><i id="ic"></i>' + result[x].name + '</a></li>';
+						output += '<li class=""><a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/' + result[x].url_key + '"><i id="ic"></i>' + result[x].name + '</a></li>';
 					}
 				}
 			}
@@ -36,7 +36,7 @@ var main = {
 	homepage: function (req, res) {
 		main.get_header(req, function(output) {
 			res.render(
-				'index.ejs', 
+				'index.ejs',
 				{title:'Nodecart', header:output[0]}
 			);
 		});
@@ -54,10 +54,10 @@ var main = {
 				var pid = url_value.split('product/');
 				main.productview(req, res, pid[1]);
 			} else {
-			  res.redirect('/',301);		
+			  res.redirect('/',301);
 			}
-		});						  
-      } 
+		});
+      }
 	},
 
 	productlist: function(req, res, cid) {
@@ -70,16 +70,16 @@ var main = {
 		if (catid) {
 			main.get_header(req, function(output) {
 				general.get_product_list(catid, function(err, productlist) {
-				   res.render('productlist.ejs', 
+				   res.render('productlist.ejs',
 							{title:'Product list', productlist: (productlist.length)?productlist:'', header:output[0], bcrum:output[1]}
-				   );	
+				   );
 				});
 			});
 		} else {
 			res.redirect('/');
 		}
 	},
-	
+
 	productview: function(req, res, xpid) {
 		var pid = '';
 		if (req.params.pid) {
@@ -91,9 +91,9 @@ var main = {
 			main.get_header(req, function(output) {
 				general.get_product(pid, function(err, productdata) {
 				   output[1][1] = productdata[0].name;
-				   res.render('productview.ejs', 
+				   res.render('productview.ejs',
 							{title:'Product Detail', productdata: (productdata[0])?productdata[0]:'', header:output[0], bcrum:output[1]}
-				   );	
+				   );
 				});
 			});
 		} else {
@@ -126,11 +126,11 @@ var main = {
 				sess.price = price;
 				req.session.cart[req.session.cart.length] = sess;
 				res.redirect('/cart/view');
-			  });	
+			  });
 			} else {
 				res.redirect('/cart/view');
 			}
-		} else { 
+		} else {
 			res.redirect('/');
 		}
 	},
@@ -150,7 +150,7 @@ var main = {
 		main.get_header(req, function(output) {
 				req.session.cartqty = [];
 				var getids = '';
-				output[1][1] = 'Cart';	
+				output[1][1] = 'Cart';
 				if (req.session.cart) {
 					for(var x in req.session.cart) {
 						if (req.session.cart[x].pid && req.session.cart[x].pid > 0) {
@@ -163,16 +163,16 @@ var main = {
 				if (getids) {
 					getids = getids.substring(0, getids.length - 1);
 					general.get_product_by_ids(getids, function(err, productlist) {
-							res.render('viewcart.ejs', 
+							res.render('viewcart.ejs',
 								{title:'Cart', productlist: productlist, header:output[0], bcrum:output[1]}
-							);	
+							);
 					});
 				} else {
-					res.render('viewcart.ejs', 
+					res.render('viewcart.ejs',
 						{title:'Cart', productlist: '', header:output[0], bcrum:output[1]}
 					);
 				}
-				
+
 		});
 	},
 
@@ -180,11 +180,11 @@ var main = {
 		main.get_header(req, function(output) {
 				req.session.cartqty = [];
 				var getids = '';
-				output[1][1] = 'Checkout';	
+				output[1][1] = 'Checkout';
 				if (req.session.cart && req.session.cart.length > 0) {
-					res.render('checkout.ejs', 
+					res.render('checkout.ejs',
 						{title:'Checkout', header:output[0], bcrum:output[1]}
-					);	
+					);
 				} else {
 					res.redirect('/cart/view');
 				}
@@ -195,7 +195,7 @@ var main = {
 		if (req.session.cart && req.session.cart.length > 0) {
 			var order = require('./../model/order');
 			require('date-utils');
-			var d = Date.today(); 
+			var d = Date.today();
 			var products = '';
 			var orderamt = 0;
 			for(var x in req.session.cart) {
@@ -243,7 +243,7 @@ var main = {
 					res.redirect('/thankyou');
 				}
 			});
-			//place your code for creating order	
+			//place your code for creating order
 		} else {
 			res.redirect('/');
 		}
@@ -251,14 +251,14 @@ var main = {
 
 	thankyou: function (req, res) {
 		main.get_header(req, function(output) {
-				output[1][1] = 'Thank You';	
+				output[1][1] = 'Thank You';
 				req.session.cart = [];
-				res.render('thankyou.ejs', 
+				res.render('thankyou.ejs',
 					{title:'Thank You', header:output[0], bcrum:output[1]}
-				);	
+				);
 		});
 	},
-	
+
 	removecart: function (req, res) {
 		var pid = '';
 		var found = 0;
@@ -275,7 +275,7 @@ var main = {
 				}
 			}
 			res.redirect('/cart/view');
-		} else { 
+		} else {
 			res.redirect('/');
 		}
 	},
@@ -302,32 +302,32 @@ var main = {
 				}
 			}
 			res.redirect('/cart/view');
-		} else { 
+		} else {
 			res.redirect('/');
 		}
 	},
 
 	aboutus: function (req, res) {
 		main.get_header(req, function(output) {
-				output[1][1] = 'About Us';	
+				output[1][1] = 'About Us';
 				req.session.cart = [];
-				res.render('aboutus.ejs', 
+				res.render('aboutus.ejs',
 					{title:'About us', header:output[0], bcrum:output[1]}
-				);	
+				);
 		});
 	},
 
 	contactus: function (req, res) {
 		main.get_header(req, function(output) {
-				output[1][1] = 'Contact Us';	
+				output[1][1] = 'Contact Us';
 				req.session.cart = [];
-				res.render('contactus.ejs', 
+				res.render('contactus.ejs',
 					{title:'Contact Us', header:output[0], bcrum:output[1]}
-				);	
+				);
 		});
 	}
 
-	
+
 
 
 };
