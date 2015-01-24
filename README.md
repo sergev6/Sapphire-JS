@@ -20,7 +20,7 @@ Installation
 
 - Start the admin by the command line go to the downloaded admin folder : use: node server.js 
 
-- Admin will listen on 3000 port you can access admin by http://localhost:3000 you can use admin@admin.com/kiran123 as admin username and password
+- Admin will listen on 3000 port you can access admin by http://localhost:3000
 
 - Start the frontend by the command line go to the downloaded frontend folder : use: node app.js 
 
