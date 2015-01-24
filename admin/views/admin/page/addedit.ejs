@@ -1,0 +1,51 @@
+			 <script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+			  <!-- page start-->
+              <section class="panel">
+                  <header class="panel-heading">
+                      Add/Edit Page
+                  </header>
+                  <div class="panel-body">
+						<div class="col-lg-8" style="margin-left:10px">
+								<form class="cmxform" method="post" id="frm" action="/page/save">
+									<div class="row">
+										<div class="error"></div>
+										<div class="span9">
+											<input type="hidden" name='did' value="<%= (data.id)?data.id:''%>">
+											<fieldset>
+												<div class="form-group">
+													<label class='control-label'>Title<span class="">*</span></label>
+													<div class="controls">
+														<input type="text" class="form-control required" name="title" value="<%= (data.title)?data.title:'' %>">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class='control-label'>Url-Key<span class="">*</span></label>
+													<div class="controls">
+														<input type="text" class="form-control required" name="url_key" value="<%= (data.url_key)?data.url_key:'' %>">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class='control-label'>Description</label>
+													<div class="controls">
+														<textarea type="text" class="form-control ckeditor" name="description"><%= (data.description)?data.description:'' %></textarea>
+													</div>
+												</div>
+												
+												<div class="form-actions">
+													<button class="btn btn-primary" type="submit">Save Changes</button>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</form>
+					</div>
+                  </div>
+              </section>
+              <!-- page end-->
+
+
+
+<script>
+$("#frm").validate();
+</script>
+

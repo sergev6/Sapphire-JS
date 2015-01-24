@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <meta name="description" content="">
+    <meta name="author" content="Amit Shah" >
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="/css/jquery-ui-1.8.20.custom.css" rel="stylesheet">
+    <link href="/css/demo_table_jui.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->		
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.validate.js"></script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <span class="brand">SuperAdmin</span>
+		<% if (session.adminuser) { %>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li ><a href="/"><i class="icon-home icon-black"></i> Dashboard</a></li>
+			<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                               class="icon-edit icon-black"></i>
+                                Catalog <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/product">Manage Products</a></li>
+                                <li><a href="/category">Manage Categories</a></li>
+                                <li><a href="/manufacturer">Manage Manufacturers</a></li>
+                            </ul>
+                        </li>
+		      <li><a href="/users/">Customers</a></li>
+		      <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                               class="icon-edit icon-black"></i>
+                                Sales <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/order">Manage Orders</a></li>
+                            </ul>
+                        </li>
+
+		      <li><a href="/page/">CMS</a></li>
+
+		      <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  data-original-title="System" data-placement="bottom"><i
+                               class="icon-cog icon-black"></i>
+                                System <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/configuration">Configuration</a></li>
+                            </ul>
+                      </li>
+  
+		      <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                               class="icon-edit icon-black"></i>
+                                Reports <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/sales-report">Sales</a></li>
+                            </ul>
+                      </li>
+
+
+                    </ul>
+
+                    <ul class="nav pull-right settings">
+                        
+                        <li><a href="/logout" class="tip icon logout" data-original-title="Logout" data-placement="bottom"><i
+                           class="icon-large icon-off"></i></a></li>
+                    </ul>
+
+                    <ul class="nav pull-right settings">
+                        <li class="divider-vertical"></li>
+                    </ul>
+
+                    <p class="navbar-text pull-right">
+                        Welcome Admin
+			</strong>
+                    </p>
+
+                    <ul class="nav pull-right settings">
+                        <li class="divider-vertical"></li>
+                    </ul>
+
+                   <!-- <div class="pull-right">
+                        <form class="form-search form-inline" style="margin:5px 0 0 0;" method="post">
+                            <div class="input-append">
+                                <input type="text" name="keyword" class="span2 search-query" placeholder="Search">
+                                <button type="submit" class="btn"><i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                    </div> -->
+
+                </div>
+                <!--/.nav-collapse -->
+		<% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row-fluid">
+    
+    <!-- <div class="span2 pull-left">
+        <div class="well sidebar-nav">
+            <ul class="nav nav-tabs nav-stacked">
+                <li class="nav-header">Navigation</li>
+                <li class="active"><a href="#">Link One</a></li>
+                <li><a href="#">Link Two</a></li>
+                <li><a href="#">Link Three</a></li>
+                <li><a href="#">Link Four</a></li>
+            </ul>
+        </div>
+    </div> -->
+    <!--/.well -->
+    <!--/span3-->
+
+    <div class="span12 pull-left">
+
+        <div class="well">
+            <%- body %>
+        </div>
+
+    </div>
+    <!--/span9-->
+
+</div>
+<!--/row-fluid-->
+
+
+<hr>
+
+<footer align="center">
+    <p>Copyright &copy; 2013 <strong></strong></p>
+</footer>
+
+<script src="/js/vendor/bootstrap.min.js"></script>
+<script src="/js/jquery.dataTables.js"></script>
+<script src="/ckeditor/ckeditor.js"></script>		
+<script>
+    // enable tooltips
+    $(".tip").tooltip();
+</script>
+
+</body>
+</html>

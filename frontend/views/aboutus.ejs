@@ -1,0 +1,51 @@
+<div class="row">
+   <div class="span3">
+	<%
+		if (header) {
+	%>
+			<ul class="nav nav-tabs nav-stacked">
+			<%- header %>
+			</ul>
+	<%
+		}
+	%>
+   </div>
+
+   <div class="span9">
+		<%
+		if (bcrum) {
+		%>
+			<ul class="breadcrumb">
+		<%
+			for(var x in bcrum) {
+			  var css = '';
+			  if (x==bcrum.length-1) {
+				css = 'active';
+			  }
+		%>
+			<li class="<%= css %>"><%- bcrum[x] %>
+			<%
+				if (css=='') {
+			%>
+				<span class="divider">/</span>
+			<%
+				}
+			%>
+			</li>
+		<%
+			}
+		%>
+			</ul>
+		<%
+		}
+		%>
+
+
+		<p style="padding-left:5px;padding-right:10px">
+		  Sapphire is a Node.js E-Commerce Cart.
+		</p>
+
+    </div>
+
+</div>
+

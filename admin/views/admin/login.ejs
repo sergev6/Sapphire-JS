@@ -1,0 +1,21 @@
+<!-- page start-->
+  <section class="panel">
+	  <div class="panel-body">
+
+		<form class="form-signin" method="post" action="/login/" id="login-form">
+				<h2 class="form-signin-heading">sign in now</h2>
+				<div class="login-wrap">
+					<input type="text" class="form-control required email" placeholder="User ID" name="adminusername" id="adminusername"><br>
+					<input type="password" class="form-control required" name="adminpass" id="adminpass" placeholder="Password" ><br>
+					<button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+				</div>
+		</form>
+
+	</div>
+</section>
+			
+<script>
+	 jQuery().ready(function() {
+		jQuery("#login-form").validate();
+	 });
+</script>

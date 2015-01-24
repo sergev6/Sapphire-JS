@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
+
+    <title>Sapphire | Node.js E-Commerce Cart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+	<link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/data-tables/DT_bootstrap.css" />
+	<!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style-responsive.css" rel="stylesheet" />
+
+
+    <script type="text/javascript" language="javascript" src="/assets/advanced-datatable/media/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/assets/data-tables/DT_bootstrap.js"></script>
+    <script src="/js/respond.min.js" ></script>
+	<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+ <% if (session.adminuser) { %>
+  <body>
+<% } else { %>
+  <body class="login-body">
+<% } %>
+  <section id="container" class="">
+      <!--header start-->
+      <header class="header white-bg">
+          <div class="sidebar-toggle-box">
+              <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
+          </div>
+          <!--logo start-->
+          <a href="/" class="logo" >Sapphire <span>Admin</span></a>
+          <!--logo end-->
+		  <% if (session.adminuser) { %>
+          <div class="top-nav ">
+              <ul class="nav pull-right top-menu">
+                  <!-- user login dropdown start-->
+
+                  <li class="dropdown">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                          <span class="username">Admin</span>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu extended logout">
+                          <div class="log-arrow-up"></div>
+                          <li><a href="/logout"><i class="fa fa-key"></i> Log Out</a></li>
+                      </ul>
+                  </li>
+                  <!-- user login dropdown end -->
+              </ul>
+          </div>
+		  <% } %>
+      </header>
+      <!--header end-->
+
+	  <% if (session.adminuser) { %>
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <li>
+                      <a href="/">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="active">
+                          <i class="fa fa-shopping-cart"></i>
+                          <span>Catalog</span>
+                      </a>
+                      <ul class="sub">
+			  <li><a href="/product">Manage Products</a></li>
+                          <li><a href="/category">Manage Categories</a></li>
+                          <li><a href="/manufacturer">Manage Manufacturers</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="/users/">
+                          <i class="fa fa-book"></i>
+                          <span>Customers</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="active">
+                          <i class="fa fa-cogs"></i>
+                          <span>Sales</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="/order">Manage Orders</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="/page/">
+                          <i class="fa fa-tasks"></i>
+                          <span>CMS</span>
+                      </a>
+
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>System</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="/configuration">Configuration</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+	  <% } %>
+
+	  <% if (session.adminuser) { %>
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper site-min-height">
+					<%- body %>
+          </section>
+      </section>
+	  <% } else { %>
+					<%- body %>
+	  <% } %>
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              Sapphire | Node.js E-Commerce Cart
+              <a href="#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <!--<script src="js/jquery.js"></script>-->
+    <script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/js/jquery.scrollTo.min.js"></script>
+    <script src="/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <script src="/js/common-scripts.js"></script>
+
+
+  </body>
+</html>

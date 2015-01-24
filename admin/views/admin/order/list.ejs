@@ -1,0 +1,104 @@
+			  <!-- page start-->
+              <section class="panel">
+                  <header class="panel-heading">
+                     Manage Order
+                  </header>
+                  <div class="panel-body">
+                      <div class="adv-table">
+                          <div class="clearfix">
+                              <div class="btn-group">
+								  <a href="/order/add" class="btn btn-default">Add Order<i class="fa fa-plus"></i></a>
+                              </div>
+                          </div>
+                          <div class="space15"></div>
+
+							<table class="display table table-bordered table-striped" id="datatable-cat">
+									<thead id="colls">
+										<tr>
+											<th width="20px;"><input type="checkbox" ></th>
+											<th >Firstname</th>
+											<th >Lastname</th>
+											<th >Email</th>
+											<th >Amount</th>
+											<th >Created</th>	
+											<th width="60px;">Action  </th>
+										</tr>
+									</thead>
+								
+									<tbody>		
+									</tbody>
+
+							</table>
+                      </div>
+                  </div>
+              </section>
+              <!-- page end-->
+
+
+<script>
+
+var asInitVals = new Array();
+$(document).ready(function() {
+  var oTable = $('#datatable-cat').dataTable( {
+    "bProcessing": true,
+    "sAjaxSource": "/order/all",
+    "bJQueryUI": true,
+    "aoColumns": [
+      { "mDataProp": function (id) {
+        return '<input type=\"checkbox\" value="'+id.id +'">';} },
+      { "mDataProp": "firstname" },
+      { "mDataProp": "lastname" },	
+      { "mDataProp": "email" },
+      { "mDataProp": function (id) {
+	   var c = '';
+	   if (id.currency=="dollar")
+		c = '$';
+	   if (id.currency=="pound")
+		c = '&pound;';
+	   if (id.currency=="euro")
+		c = '&#164;';
+	   if (id.currency=="rupees")
+		c = 'Rs';
+	   return c+id.orderamt;	
+	   	
+      } },
+      
+      { "mDataProp": "orderdate" },	
+      { "mDataProp": function (id) {
+        return '<a href=\"/order/edit/'+id.id +'\" ><i class="glyphicon glyphicon-edit"></i></a> | <a href=\"/order/delete/'+id.id +'\" ><i class="glyphicon glyphicon-remove"></i></a>';} }
+      
+    ],
+    "bAutoWidth": false
+    
+  } );  
+  $(".searchfilter input").keyup( function () {
+    /* Filter on the column (the index) of this element */
+    oTable.fnFilter( this.value, $(".searchfilter input").index(this) );
+  } );  
+  /*
+   * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
+   * the footer
+   */
+  $(".searchfilter input").each( function (i) {
+    asInitVals[i] = this.value;
+  } );
+  
+  $(".searchfilter input").focus( function () {
+    if ( this.className == "search_init" )
+    {
+      this.className = "";
+      this.value = "";
+    }
+  } );
+  
+  $(".searchfilter input").blur( function (i) {
+    if ( this.value == "" )
+    {
+      this.className = "search_init";
+      this.value = asInitVals[$(".searchfilter input").index(this)];
+    }
+  } );
+} );
+
+</script>
+  

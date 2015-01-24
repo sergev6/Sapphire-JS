@@ -1,0 +1,109 @@
+<style>
+body{
+zoom:0.9;
+margin:0;
+padding:0;
+width:100%;
+}
+</style>
+<div class="row">
+   <div class="span3">
+	<%
+		if (header) {
+	%>
+			<ul class="nav nav-tabs nav-stacked">
+			<%- header %>
+			</ul>
+	<%
+		}
+	%>
+   </div>
+
+   <div class="span9">
+		<%
+		if (bcrum) {
+		%>
+			<ul class="breadcrumb">	
+		<%
+			for(var x in bcrum) { 
+			  var css = '';
+			  if (x==bcrum.length-1) {
+				css = 'active';
+			  }
+		%>
+			<li class="<%= css %>"><%- bcrum[x] %>
+			<%
+				if (css=='') {
+			%>
+				<span class="divider">/</span>
+			<%
+				}
+			%>
+			</li>	
+		<%	  
+			}
+		%>
+			</ul>
+		<%
+		}
+		%>	
+			
+		
+		<script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyAo5LDTyX2Qp8s0wdo6bvxI_NKHE5BLQ-w" type="text/javascript"></script>
+		<div id="map" style="width: 700px; height: 510px; text-align:center"></div>
+
+		<script type="text/javascript">
+
+			var map;var geocoder;
+			var setLat = 51.618017;
+			var setLon = 2.48291;   
+			var place;var marker;
+
+
+			function createInfoMarker(point, address) {
+				   marker = new GMarker(point);
+				   GEvent.addListener(marker, "click",
+					      function() {
+						 marker.openInfoWindowHtml(address);
+					      }
+				   );
+				  marker.openInfoWindowHtml(address);
+				  return marker;
+			}
+		  
+			function getCoordForAddress(response) {
+			
+				if (!response || response.Status.code != 200) {
+				alert("Sorry, we were unable to geocode that address\n\n Sorry, dat adres bestaat blijkbaar niet!");
+			    } else {
+					place = response.Placemark[0];
+					setLat = place.Point.coordinates[1];
+					setLon = place.Point.coordinates[0];
+					//setLat = setLat.toFixed(6);
+					//setLon = setLon.toFixed(6);
+					
+				}
+				
+				var point = new GLatLng(setLat, setLon);
+				map.addControl(new GSmallMapControl()); // added
+				map.addControl(new GMapTypeControl()); // added
+				map.setCenter(point, 13);
+				
+				address = "<span style='color:#000'><b>Amit Shah</b> <br>9724712452, Gandhinagar</span>";
+				marker = createInfoMarker(point, address);
+				map.addOverlay(marker);
+			}
+
+			map = new GMap(document.getElementById("map"));
+			geocoder = new GClientGeocoder();
+			geocoder.getLocations("satyamev chhavani icon, sughad, gandhinagar", getCoordForAddress);
+
+		       </script>
+		
+    </div>
+
+</div>
+
+
+
+  

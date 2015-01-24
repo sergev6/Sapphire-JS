@@ -1,0 +1,174 @@
+ <link href="/css/demo_table_jui.css" rel="stylesheet">
+ <script src="/js/jquery.MultiFile.js"></script>
+<div class="subnav">
+    <div class="pull-left" style="margin-top:-8px">
+	<h4>Add/Edit Product</h4>
+    </div>
+</div><br>
+<hr>
+<form class="well form-horizontal" method="post" id="frm" action="/product/save" enctype="multipart/form-data">
+	<div class="row">
+		<div class="error"></div>
+		<div class="span9">
+			<input type="hidden" name='did' value="<%= (data.id)?data.id:''%>">
+			<fieldset>
+				<div class="control-group">
+					<label class='control-label'>Name<span class="">*</span></label>
+					<div class="controls">
+						<input type="text" class="span10 required" name="name" value="<%= (data.name)?data.name:'' %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>SKU<span class=""></span></label>
+					<div class="controls">
+						<input type="text"  name="sku" value="<%= (data.sku)?data.sku:'' %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Url-Key<span class=""></span></label>
+					<div class="controls">
+						<input type="text" class="span10" name="url_key" value="<%= (data.url_key)?data.url_key:'' %>">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Description</label>
+					<div class="controls">
+						<textarea type="text" class="span7 ckeditor" name="description"><%= (data.description)?data.description:'' %></textarea>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Price<span class="">*</span></label>
+					<div class="controls">
+						<input type="text" class="span3 required number" name="price" value="<%= (data.price)?data.price:'' %>" maxlength="20">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Qty<span class="">*</span></label>
+					<div class="controls">
+						<input type="text" class="span3 required number" name="qty" value="<%= (data.qty)?data.qty:'' %>" maxlength="10">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class='control-label'>Select Category</label>
+					<div class="controls">
+						<select name="category_id" size="5" multiple="true">
+							<option value="">All</option>
+							<%
+							   if (alldata) {
+							      for(var x in alldata) {
+							%>   
+							         <option value="<%=alldata[x].id%>" <%= (checkStr(data.category_id, alldata[x].id+', ')>-1)?'selected':''%>><%= alldata[x].name %></option>	
+							<% 
+							       }	
+							    } 
+							%>
+						</select>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class='control-label'>Discount</label>
+					<div class="controls">
+						<input class="span3 number" type="text"  name="discount" value="<%= (data.discount)?data.discount:'' %>" maxlength="10">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Discount Type</label>
+					<div class="controls">
+						<select name="discount_type">
+							<option value="fixed" <%= (data.discount_type=='fixed')?"selected":"" %>>Fixed</option>
+							<option value="percentage" <%= (!data.discount_type=='percentage')?"selected":"" %>>Percentage</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Tax</label>
+					<div class="controls">
+						<input class="span3 number" type="text"  name="tax" value="<%= (data.tax)?data.tax:'' %>" maxlength="10">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class='control-label'>Tax Type</label>
+					<div class="controls">
+						<select name="tax_type">
+							<option value="fixed" <%= (data.tax_type=='fixed')?"selected":"" %>>Fixed</option>
+							<option value="percentage" <%= (!data.tax_type=='percentage')?"selected":"" %>>Percentage</option>
+						</select>
+					</div>
+				</div>
+	
+				<div class="control-group">
+					<label class='control-label'>Product Image</label>
+					<div class="controls">
+						<input id="fileupload" type="file" name="productimage[]" class="multi"/ >
+						<input type="hidden" id="oldimage" name="oldimage" value="<%= (data.productimage)?data.productimage:'' %>" >
+						<input type="hidden" id="delimg" name="delimg" >
+						<br>
+						<div>
+						<%
+						   if (data.productimage) {	
+						   var prodimg = data.productimage.split('#');
+						   for(i=0; i<prodimg.length-1; i++) {	
+						     var imgsmallarray = prodimg[i].split('.');
+						     var imgsmall = imgsmallarray[0] + ".medium." +  imgsmallarray[1];
+						     if (imgsmall) {
+							imgsmall = imgsmall.replace('.jpeg','.jpg');
+						     }
+						%>
+							<div class="thumbnail right-caption span2" id="imgbox<%= i+1 %>">
+							  <img src="/media/<%= imgsmall %>" alt="">
+							  <div class="caption pull-right">
+							    <p><a onclick="removeimg('<%= prodimg[i] %>',<%= i+1 %>);" class="btn">Delete</a> </p>
+							  </div>
+							</div>
+						<%
+						    }
+						}
+						%>
+						
+						</div>
+						<div style="float:left;color:red;font-size:10px">Note: Imagemagick is not installed on the server. So it will not upload image.</div>
+					</div>
+				</div>
+				
+
+				<div class="control-group">
+					<label class='control-label'>Is Active</label>
+					<div class="controls">
+						<select name="is_active">
+							<option value="1" <%= (data.is_active)?"selected":"" %>>Yes</option>
+							<option value="0" <%= (!data.is_active)?"selected":"" %>>No</option>
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="form-actions">
+					<button class="btn btn-primary" type="submit">Save Changes</button>
+				</div>
+			</fieldset>
+		</div>
+
+
+	</div>
+</form>
+
+<script>
+$("#frm").validate();
+
+function removeimg(img, boxid) {
+
+if (confirm('Are you sure?')) {
+   var delimg = $("#delimg").val();
+   $("#delimg").val(delimg + img + '#');
+   var newimages  = $("#oldimage").val().replace(img + '#', "");
+   $("#oldimage").val(newimages);
+   $("#imgbox"+boxid).remove();
+} else {
+  return false;
+}
+
+}
+</script>
+

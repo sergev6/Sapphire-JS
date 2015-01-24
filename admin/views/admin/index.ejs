@@ -1,0 +1,187 @@
+ <script src="/js/count.js"></script>
+
+			  <!--state overview start-->
+              <div class="row state-overview">
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol terques">
+                              <i class="fa fa-user"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class="count">
+                                  0
+                              </h1>
+                              <p>New Users</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="fa fa-tags"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count2">
+                                  0
+                              </h1>
+                              <p>Sales</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="fa fa-shopping-cart"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count3">
+                                  0
+                              </h1>
+                              <p>New Order</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol blue">
+                              <i class="fa fa-bar-chart-o"></i>
+                          </div>
+                          <div class="value">
+                              <h1 class=" count4">
+                                  0
+                              </h1>
+                              <p>Total Earning($)</p>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+              <!--state overview end-->
+
+
+              <div class="row">
+
+
+                  <div class="col-lg-8">
+                      <!--custom chart start-->
+                      <div class="border-head">
+                          <h3>Earning Graph</h3>
+                      </div>
+                      <div class="custom-bar-chart">
+                          <ul class="y-axis">
+                              <li><span>100</span></li>
+                              <li><span>80</span></li>
+                              <li><span>60</span></li>
+                              <li><span>40</span></li>
+                              <li><span>20</span></li>
+                              <li><span>0</span></li>
+                          </ul>
+                          <div class="bar">
+                              <div class="title">JAN</div>
+							  <% var x = parseInt((dashdata.graph[1]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">FEB</div>
+                    		  <% var x = parseInt((dashdata.graph[2]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">MAR</div>
+                    		  <% var x = parseInt((dashdata.graph[3]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">APR</div>
+                    		  <% var x = parseInt((dashdata.graph[4]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">MAY</div>
+                    		  <% var x = parseInt((dashdata.graph[5]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">JUN</div>
+                    		  <% var x = parseInt((dashdata.graph[6]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar">
+                              <div class="title">JUL</div>
+                    		  <% var x = parseInt((dashdata.graph[7]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">AUG</div>
+                    		  <% var x = parseInt((dashdata.graph[8]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">SEP</div>
+                    		  <% var x = parseInt((dashdata.graph[9]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">OCT</div>
+                    		  <% var x = parseInt((dashdata.graph[10]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">NOV</div>
+                    		  <% var x = parseInt((dashdata.graph[11]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                          <div class="bar ">
+                              <div class="title">DEC</div>
+                    		  <% var x = parseInt((dashdata.graph[12]/dashdata.totalsales)*100) %>
+                              <div class="value tooltips" data-original-title="<%= x %>%" data-toggle="tooltip" data-placement="top"><%= x %>%</div>
+                          </div>
+                      </div>
+                      <!--custom chart end-->
+                  </div>
+                  <div class="col-lg-4">
+                      <!--new earning start-->
+                      <div class="panel terques-chart">
+                          <div class="panel-body chart-texture">
+                              <div class="chart">
+                                  <div class="heading">
+                                      <span>Today</span>
+									   <% var x = parseInt((dashdata.todayearning/dashdata.totalsales)*100) %>
+                                      <strong>$ <%= dashdata.todayearning %> | <%= x %>%</strong>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="chart-tittle">
+                              <span class="title">New Earning</span>
+                           </div>
+                      </div>
+                      <!--new earning end-->
+
+                      <!--total earning start-->
+                      <div class="panel green-chart">
+                          <div class="panel-body">
+                              <div class="chart">
+                                  <div class="heading">
+                                      <span>
+									     <%= dashdata.monthname %>	
+									  </span>
+                        			   <% var x = parseInt((dashdata.monthearning/dashdata.totalsales)*100) %>
+                                      <strong>$ <%= dashdata.monthearning %> | <%= x %>%</strong>
+                                  </div>
+                                  <div id="barchart"></div>
+                              </div>
+                          </div>
+                          <div class="chart-tittle">
+                              <span class="title">Total Earning</span>
+                              <span class="value">$ <%= dashdata.totalsales %></span>
+                          </div>
+                      </div>
+                      <!--total earning end-->
+                  </div>
+              </div>
+
+<script>
+	countUp(<%= dashdata.ucount %>);
+	countUp2(<%= dashdata.sales %>);
+	countUp3(<%= dashdata.ocount %>);
+	countUp4(<%= dashdata.totalsales %>);
+</script>

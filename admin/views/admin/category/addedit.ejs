@@ -1,0 +1,78 @@
+  <script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+			<!-- page start-->
+              <section class="panel">
+                  <header class="panel-heading">
+                      Add/Edit Category
+                  </header>
+                  <div class="panel-body">
+						<div class="col-lg-8" style="margin-left:10px">
+
+							<form class="cmxform"  method="post" id="frm" action="/category/save">
+								<div class="row">
+									<div class="error"></div>
+									<div class="span9">
+										<input type="hidden" name='catid' value="<%= (data.id)?data.id:''%>">
+										<fieldset>
+											<div class="form-group">
+												<label class='control-label'>Name<span class="">*</span></label>
+												<div class="controls">
+													<input type="text" class="form-control required" name="name" value="<%= (data.name)?data.name:'' %>">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class='control-label'>Url Key</label>
+												<div class="controls">
+													<input type="text" class="form-control required" name="url_key" value="<%= (data.url_key)?data.url_key:'' %>">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class='control-label'>Parent Category</label>
+												<div class="controls">
+													<select name="parent_id" class="form-control">
+														<option value="">Select Parent</option>
+														<%
+														   if (alldata) {
+															  for(var x in alldata) {
+														%>   
+																 <option value="<%=alldata[x].id%>" <%=(alldata[x].id==data.parent_id)?'selected':''%>><%=alldata[x].name%></option>	
+														<% 
+															   }	
+															} 
+														%>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class='control-label'>Description</label>
+												<div class="controls">
+													<textarea type="text" class="form-control ckeditor" name="description"><%= (data.description)?data.description:'' %></textarea>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class='control-label'>Is Active</label>
+												<div class="controls">
+													<select name="is_active" class="form-control">
+														<option value="1" <%= (data.is_active)?"selected":"" %>>Yes</option>
+														<option value="0" <%= (!data.is_active)?"selected":"" %>>No</option>
+													</select>
+												</div>
+											</div>
+											
+											<div class="form-actions">
+												<button class="btn btn-info" type="submit">Save Changes</button>
+											</div>
+										</fieldset>
+									</div>
+
+
+								</div>
+							</form>
+						</div>
+                  </div>
+              </section>
+              <!-- page end-->
+
+<script>
+$("#frm").validate();
+</script>
+

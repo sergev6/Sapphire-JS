@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body
+{
+    padding: 10px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.sidebar-nav
+{
+    padding: 0;
+    border: none;
+    width: 230px;
+}
+
+a.nounderline
+{
+    text-decoration: none;
+}
+
+.table td.center
+{
+    text-align: center;
+}
+
+.dropdown-menu
+{
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.accordion-group1 {
+    border-radius: 4px 4px 4px 4px;
+    float: left;
+    margin-bottom: 2px;
+    width: 48%;
+	margin-left:10px;
+	margin-top:10px;
+	text-align:left;
+}
+
+.error {
+color:red;
+}
+
+.accordion-group1 tr td {
+vertical-align:top;
+}
