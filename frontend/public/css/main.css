@@ -160,6 +160,11 @@ header .fa-bars {
     font-size: 1.75em;
 }
 
+md-sidenav,
+md-backdrop {
+    position: fixed !important;
+}
+
 md-sidenav .md-toolbar-tools,
 md-sidenav md-toolbar {
     height: 60px;
@@ -249,9 +254,21 @@ footer {
     margin: 0 auto;
     margin-top: 15px;
     max-width: 940px;
-    padding-top: 15px;
     text-align: center;
     width: 100%;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .copyright {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
 }
 
 /* ==========================================================================
