@@ -92,10 +92,15 @@
     <%
 	    if (session.cart && session.cart.length) {
     %>
-	    <a href='/cart/view' flex>View Cart(<%= session.cart.length %>)</a> &nbsp;|
+	    <a href='/cart/view' flex class="mini-cart">View Cart(<%= session.cart.length %>)</a>
     <% } %>
 
-    <md-button flex ng-href="/user/register" target="_blank" class="md-primary md-raised">Get Started</md-button>
+    <%
+       if (session.frontuser) {
+    %>
+    <% } else { %>
+    <md-button flex ng-href="/user/register" target="_blank" class="md-primary md-raised">Join</md-button>
+    <% } %>
 
     </div>
   </div>

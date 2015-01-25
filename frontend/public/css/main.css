@@ -34,6 +34,7 @@ header .md-button {
     border-radius: 50%;
     height: 50px;
     margin: 0 auto;
+    margin-bottom: 15px;
     position: relative;
     width: 50px;
 }
@@ -41,7 +42,7 @@ header .md-button {
 .sapphire-icon-holder-blue .fa-mobile {
     color: #fff;
     display: block;
-    font-size: 2.5em;
+    font-size: 1.5em;
     line-height: 47px;
     text-align: center;
 }
@@ -51,6 +52,7 @@ header .md-button {
     border-radius: 50%;
     height: 50px;
     margin: 0 auto;
+    margin-bottom: 15px;
     position: relative;
     width: 50px;
 }
@@ -58,7 +60,7 @@ header .md-button {
 .sapphire-icon-holder-white .fa-heart-o {
     color: rgb(33,150,243);
     display: block;
-    font-size: 1.75em;
+    font-size: 1.25em;
     line-height: 50px;
     text-align: center;
 }
@@ -66,7 +68,7 @@ header .md-button {
 .sapphire-icon-holder-white .fa-credit-card {
     color: rgb(33,150,243);
     display: block;
-    font-size: 1.5em;
+    font-size: 1.25em;
     line-height: 48px;
     text-align: center;
 }
@@ -84,7 +86,7 @@ header .md-button {
     padding-bottom: 120px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 140px;
+    padding-top: 120px;
     text-align: center;
 }
 
@@ -92,7 +94,11 @@ header .md-button {
     color: rgb(33,150,243);
     font-size: 3.25em;
     font-weight: 300;
-    margin-bottom: 15px;
+    margin-bottom: 0;
+}
+
+.sub-heading {
+    line-height: 0;
 }
 
 .sapphire-brand-details {
@@ -126,6 +132,14 @@ header .md-button {
     border-radius: 0;
 }
 
+.thumbnail .md-shadow-bottom-z-1,
+.thumbnail .md-button.md-raised:not([disabled]),
+.thumbnail .md-button.md-fab,
+.thumbnail .md-shadow-bottom-z-2,
+.thumbnail .md-button.md-raised:not([disabled]):focus,
+.thumbnail .md-button.md-raised:not([disabled]):hover,
+.thumbnail .md-button.md-fab:not([disabled]):focus,
+.thumbnail .md-button.md-fab:not([disabled]):hover,
 header .md-shadow-bottom-z-1,
 header .md-button.md-raised:not([disabled]),
 header .md-button.md-fab,
@@ -139,6 +153,10 @@ header .md-button.md-fab:not([disabled]):hover {
     text-transform: initial;
 }
 
+.thumbnail .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
+.thumbnail .md-button.md-default-theme.md-primary.md-raised:not([disabled]):focus,
+.thumbnail .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
+.thumbnail .md-button.md-default-theme.md-primary.md-fab:not([disabled]):focus,
 header .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
 header .md-button.md-default-theme.md-primary.md-raised:not([disabled]):focus,
 header .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
@@ -146,6 +164,8 @@ header .md-button.md-default-theme.md-primary.md-fab:not([disabled]):focus {
     background-color: rgb(29,144,221);
 }
 
+.thumbnail .md-button.md-default-theme.md-primary.md-raised,
+.thumbnail .md-button.md-default-theme.md-primary.md-fab,
 header .md-button.md-default-theme.md-primary.md-raised,
 header .md-button.md-default-theme.md-primary.md-fab {
     background-color: rgb(33,150,243);
@@ -157,7 +177,12 @@ header a:hover {
 }
 
 header .fa-bars {
-    font-size: 1.75em;
+    font-size: 1.5em;
+}
+
+md-sidenav {
+    min-width: 225px;
+    width: 220px;
 }
 
 md-sidenav,
@@ -182,6 +207,9 @@ md-sidenav li {
     padding-left: 0;
 }
 
+md-sidenav li a:hover {
+    text-decoration: none;
+}
 
 md-sidenav li:first-child {
     display: none;
@@ -218,8 +246,10 @@ md-sidenav md-content {
     padding-top: 15px;
 }
 
-md-sidenav hr {
+hr {
     margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    border-top: none;
 }
 
 md-sidenav .menu-item.ng-hide {
@@ -253,7 +283,7 @@ footer {
     border-top: 1px solid #eee;
     margin: 0 auto;
     margin-top: 15px;
-    max-width: 940px;
+    max-width: 980px;
     text-align: center;
     width: 100%;
 }
@@ -269,6 +299,53 @@ footer a:hover {
 footer .copyright {
     border-top: 1px solid #eee;
     padding-top: 15px;
+}
+
+
+.sapphire-auth {
+    margin: 0 auto;
+    max-width: 980px;
+    padding-top: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+.sapphire-auth h2 {
+    font-weight: 300;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.sapphire-general {
+    margin: 0 auto;
+    max-width: 980px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 60px;
+    width: 100%;
+}
+
+.sapphire-general h2 {
+    font-weight: 300;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb {
+    list-style: none;
+    padding-left: 0;
+}
+
+.breadcrumb li {
+    display: inline-block;
 }
 
 /* ==========================================================================
@@ -301,4 +378,20 @@ a.nounderline
 {
     max-height: 600px;
     overflow-y: auto;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail a {
+    text-decoration: none;
+}
+
+.prodprice {
+    text-align: center;
+}
+
+.mini-cart {
+    text-align: center;
 }

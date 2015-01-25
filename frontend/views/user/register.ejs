@@ -1,9 +1,10 @@
-<div style="height:40px"><div class="pull-left"><h2>Register</h2></div>
-<div class="pull-left" style="padding-top:30px; text-align:center; width:70%"><a href="/user/login">Do you already have an account?</a></div></div>
+<div class="sapphire-auth" layout="column">
+<h2>Register</h2>
+<a href="/user/login">Do you already have an account?</a>
 <hr>
 <div>
-	<form class="well" action="/user/register" method="post" id="register_form">
-        <div style="float:left; width:50%; padding-left:100px">
+	<form action="/user/register" method="post" id="register_form">
+        <div>
 	<label>First Name</label>
         <input type="text" placeholder="" class="span3" name="first_name">
         <label>Last Name</label>
@@ -11,7 +12,7 @@
         <label>Display Name *</label>
         <input type="text" placeholder="" class="span3 required" name="nickname">
 	</div>
-	<div style="float:left">
+	<div>
 	<label>Email *</label>
         <input type="text" placeholder="" class="span3 required email" name="email_id">
         <label>Password *</label>
@@ -21,9 +22,8 @@
 	</div>
 	<div style="clear:both"></div>
        <br>
-       <div style="text-align:center"><button class="btn btn-primary" type="submit" align="center">Register</button></div>
+       <button class="btn btn-primary" type="submit" align="center">Register</button>
       </form>
-</div>      
-      
-      <script src="/js/user/register.js"></script>
-      
+</div>
+</div>
+<script src="/js/user/register.js"></script>
