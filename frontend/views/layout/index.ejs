@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title>SapphireJS | Node.js CMS & E-Commerce Platform</title>
     <meta name="description" content="Sapphire | Node.js CMS & E-Commerce Platform">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/main.css">
     <link href="/css/jquery-ui-1.8.20.custom.css" rel="stylesheet">
@@ -45,10 +44,30 @@
 
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
   <md-toolbar class="md-theme-indigo">
-    <h1 class="md-toolbar-tools">Menu</h1>
+    <h1 class="md-toolbar-tools">SapphireJS</h1>
   </md-toolbar>
   <md-content>
     <%- header %>
+
+    <hr>
+
+    <li class="">
+      <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/aboutus">
+	About
+      </a>
+    </li>
+
+    <%
+       if (session.frontuser) {
+    %>
+    <li class="">
+    <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/user/logout" hide-sm>Logout</a>
+    </li>
+    <% } else { %>
+    <li>
+    <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/user/login" hide-sm>Login</a>
+    </li>
+    <% } %>
   </md-content>
 </md-sidenav>
 
@@ -60,13 +79,7 @@
     <div class="sapphire-menu-icon" flex ng-click="toggleLeft()">
       <span class="fa fa-bars"></span>
     </div>
-    <a flex href="/aboutus" >About Us</a>
 
-    <%
-	    if (session.cart && session.cart.length) {
-    %>
-	    <a href='/cart/view'>View Cart(<%= session.cart.length %>)</a> &nbsp;|
-    <% } %>
     </div>
 
     <div flex layout="row" layout-align="center center">
@@ -77,19 +90,19 @@
 
     <div flex layout="row" layout-align="space-around center" layout-padding>
     <%
-       if (session.frontuser) {
+	    if (session.cart && session.cart.length) {
     %>
-    <a flex href="/user/logout">Logout</a>
-    <% } else { %>
-    <a flex href="/user/login">Login</a>
-    <md-button flex ng-href="/user/register" target="_blank" class="md-primary md-raised">Get Started</md-button>
+	    <a href='/cart/view' flex>View Cart(<%= session.cart.length %>)</a> &nbsp;|
     <% } %>
+
+    <md-button flex ng-href="/user/register" target="_blank" class="md-primary md-raised">Get Started</md-button>
+
     </div>
   </div>
 
 </header>
 
-<div class="container" layout="column" layout-fill>
+<div class="container" layout="column">
 
 <!-- Main Body
 ================================================== -->

@@ -12,6 +12,7 @@ header .md-button {
     height: 60px;
     position: fixed;
     width: 100%;
+    z-index: 10;
 }
 
 .sapphire-header-inner {
@@ -80,17 +81,18 @@ header .md-button {
     background: -ms-linear-gradient(45deg, #eaeaea 0%,#ffffff 100%); /* IE10+ */
     background: linear-gradient(45deg, #eaeaea 0%,#ffffff 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    padding-bottom: 80px;
+    padding-bottom: 120px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 100px;
+    padding-top: 140px;
+    text-align: center;
 }
 
 .sapphire-jumbotron h1 {
     color: rgb(33,150,243);
-    font-size: 3em;
+    font-size: 3.25em;
     font-weight: 300;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .sapphire-brand-details {
@@ -154,6 +156,10 @@ header a:hover {
     text-decoration: none;
 }
 
+header .fa-bars {
+    font-size: 1.75em;
+}
+
 md-sidenav .md-toolbar-tools,
 md-sidenav md-toolbar {
     height: 60px;
@@ -207,6 +213,10 @@ md-sidenav md-content {
     padding-top: 15px;
 }
 
+md-sidenav hr {
+    margin: 10px 0;
+}
+
 md-sidenav .menu-item.ng-hide {
   max-height: 0;
   opacity: 0;
@@ -236,9 +246,12 @@ md-sidenav .menu-item.menu-title.active {
 
 footer {
     border-top: 1px solid #eee;
+    margin: 0 auto;
     margin-top: 15px;
+    max-width: 940px;
     padding-top: 15px;
     text-align: center;
+    width: 100%;
 }
 
 /* ==========================================================================
