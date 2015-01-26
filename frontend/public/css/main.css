@@ -216,8 +216,8 @@ header .fa-bars {
 }
 
 md-sidenav {
-    min-width: 225px;
-    width: 220px;
+    min-width: 220px !important;
+    width: 220px !important;
 }
 
 md-sidenav,
