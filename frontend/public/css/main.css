@@ -102,9 +102,10 @@ header .md-button {
 
 .sapphire-brand-details {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 768px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 60px;
     width: 100%;
 }
 
