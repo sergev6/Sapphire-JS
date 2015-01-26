@@ -64,6 +64,9 @@
     <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/user/logout" hide-sm>Logout</a>
     </li>
     <% } else { %>
+    <li class="">
+    <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/user/register" hide-sm>Join</a>
+    </li>
     <li>
     <a class="menu-item menu-sub-menu md-menu-item" md-ink-ripple="#bbb" href="/user/login" hide-sm>Login</a>
     </li>
@@ -88,19 +91,8 @@
       </a>
     </div>
 
-    <div flex layout="row" layout-align="space-around center" layout-padding>
-    <%
-	    if (session.cart && session.cart.length) {
-    %>
-	    <a href='/cart/view' flex class="mini-cart">View Cart(<%= session.cart.length %>)</a>
-    <% } %>
-
-    <%
-       if (session.frontuser) {
-    %>
-    <% } else { %>
-    <md-button flex ng-href="/user/register" target="_blank" class="md-primary md-raised">Join</md-button>
-    <% } %>
+    <div flex layout="row" layout-align="end center" layout-padding>
+    <span class="fa fa-shopping-cart"></span><%= session.cart.length %>
 
     </div>
   </div>

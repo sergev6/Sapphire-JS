@@ -132,6 +132,14 @@ header .md-button {
     border-radius: 0;
 }
 
+.checkout .md-shadow-bottom-z-1,
+.checkout .md-button.md-raised:not([disabled]),
+.checkout .md-button.md-fab,
+.checkout .md-shadow-bottom-z-2,
+.checkout .md-button.md-raised:not([disabled]):focus,
+.checkout .md-button.md-raised:not([disabled]):hover,
+.checkout .md-button.md-fab:not([disabled]):focus,
+.checkout .md-button.md-fab:not([disabled]):hover,
 .thumbnail .md-shadow-bottom-z-1,
 .thumbnail .md-button.md-raised:not([disabled]),
 .thumbnail .md-button.md-fab,
@@ -142,17 +150,18 @@ header .md-button {
 .thumbnail .md-button.md-fab:not([disabled]):hover,
 header .md-shadow-bottom-z-1,
 header .md-button.md-raised:not([disabled]),
-header .md-button.md-fab,
 header .md-shadow-bottom-z-2,
 header .md-button.md-raised:not([disabled]):focus,
-header .md-button.md-raised:not([disabled]):hover,
-header .md-button.md-fab:not([disabled]):focus,
-header .md-button.md-fab:not([disabled]):hover {
+header .md-button.md-raised:not([disabled]):hover {
     box-shadow: none;
     border-radius: 0;
     text-transform: initial;
 }
 
+.checkout .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
+.checkout .md-button.md-default-theme.md-primary.md-raised:not([disabled]):focus,
+.checkout .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
+.checkout .md-button.md-default-theme.md-primary.md-fab:not([disabled]):focus,
 .thumbnail .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover,
 .thumbnail .md-button.md-default-theme.md-primary.md-raised:not([disabled]):focus,
 .thumbnail .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover,
@@ -164,12 +173,24 @@ header .md-button.md-default-theme.md-primary.md-fab:not([disabled]):focus {
     background-color: rgb(29,144,221);
 }
 
+.checkout .md-button.md-default-theme.md-primary.md-raised,
+.checkout .md-button.md-default-theme.md-primary.md-fab,
 .thumbnail .md-button.md-default-theme.md-primary.md-raised,
 .thumbnail .md-button.md-default-theme.md-primary.md-fab,
-header .md-button.md-default-theme.md-primary.md-raised,
-header .md-button.md-default-theme.md-primary.md-fab {
+header .md-button.md-default-theme.md-primary.md-raised {
     background-color: rgb(33,150,243);
     border-radius: 0;
+}
+
+.checkout .md-button.md-default-theme.md-raised {
+    background-color: #16A085;
+    color: #fff;
+}
+
+.checkout .md-button.md-default-theme.md-raised:not([disabled]):hover,
+.checkout .md-button.md-default-theme.md-raised:not([disabled]):focus {
+    background-color: #1ABC9C;
+    color: #fff;
 }
 
 header a:hover {
@@ -177,7 +198,7 @@ header a:hover {
 }
 
 header .fa-bars {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 md-sidenav {
@@ -348,6 +369,12 @@ a:hover {
     display: inline-block;
 }
 
+span.fa.fa-shopping-cart {
+    line-height: 42px;
+    font-size: 1.25em;
+    padding-right: 5px;
+}
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -394,4 +421,8 @@ a.nounderline
 
 .mini-cart {
     text-align: center;
+}
+
+.checkout a:hover {
+    text-decoration: none;
 }
