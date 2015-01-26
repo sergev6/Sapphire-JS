@@ -4,6 +4,10 @@ body {
     font-size: 14px;
 }
 
+img {
+    width: 100%;
+}
+
 header .md-button {
     border-radius: 0;
 }
