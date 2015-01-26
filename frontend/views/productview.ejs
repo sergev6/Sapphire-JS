@@ -1,38 +1,15 @@
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "76759ec0-45ab-41bb-b099-677d6dd8a79f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-<style>
-img {
-  width: auto\9;
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-</style>
 
-<div class="row">
-   <div class="span3">
-	<%
-		if (header) {
-	%>
-			<ul class="nav nav-tabs nav-stacked">
-			<%- header %>
-			</ul>
-	<%
-		}
-	%>
-   
-   </div>
-
-   <div class="span9">
+<div class="sapphire-general">
+   <div>
 		<%
 		if (bcrum) {
 		%>
-			<ul class="breadcrumb">	
+			<ul class="breadcrumb">
 		<%
-			for(var x in bcrum) { 
+			for(var x in bcrum) {
 			  var css = '';
 			  if (x==bcrum.length-1) {
 				css = 'active';
@@ -42,63 +19,63 @@ img {
 			<%
 				if (css=='') {
 			%>
-				<span class="divider">/</span>
+				<span class="divider">|</span>
 			<%
 				}
 			%>
-			</li>	
-		<%	  
+			</li>
+		<%
 			}
 		%>
 			</ul>
 		<%
 		}
-		%>	
+		%>
 
-			
+
 		<%
 			if (productdata) {
-			  
+
 				var pimage = '';
 				var givemargin = 0;
 				if (productdata.productimage) {
-				    pimage = productdata.productimage;	
-				    pimage = pimage.split('#');		
+				    pimage = productdata.productimage;
+				    pimage = pimage.split('#');
 				}
-		
+
 		%>
-				<div class="thumbnail">
-					<table><tr><td>
-					<div class="prodthumb">		
+				<div class="thumbnail" layout="row" layout-padding>
+
+					<div class="prodthumb" flex="50">
 					<%
 						if (pimage[0]) {
 							var thumb = pimage[0].split('.');
-							var thumb = thumb[0] + '.large.' + thumb[1]; 
+							var thumb = thumb[0] + '.large.' + thumb[1];
 					%>
 						<img src="/media/<%= thumb %>" >
 					<% } %>
 						<%
 							if (pimage[1] && 0) {
-						%>	
+						%>
 							<div class="proddiv">
 								<%
 								   pimage.length = 0;
-								   for(var i=1; i< pimage.length; i++) 
+								   for(var i=1; i< pimage.length; i++)
 								   {
 									if (pimage[0]) {
 										var small = pimage[i].split('.');
 										var small = small[0] + '.small.' + small[1];
 								%>
-									<img src="/media/<%= small %>" class="proddivimg">		
-									<% } %>		
+									<img src="/media/<%= small %>" class="proddivimg">
+									<% } %>
 								<% } %>
 							</div>
 						<% } %>
 					</div>
-					<div class="prodbox">
+					<div class="prodbox" flex="50">
 							<p><a href="#" class="prodname"><%- productdata.name %></a></p>
 							<p class="prodinprice">$<%- productdata.price.toPrecision(5) %></p>
-							<p>		
+							<p>
 									<span class='st_sharethis_large' displayText='ShareThis'></span>
 									<span class='st_facebook_large' displayText='Facebook'></span>
 									<span class='st_twitter_large' displayText='Tweet'></span>
@@ -111,18 +88,17 @@ img {
 							<p class="prodaddto">
 								<a href="/cart/add/<%= productdata.id %>" class="btn btn-primary">Add to Cart</a>
 							</p>
-							
+
 					</div>
-					</td></tr></table>
-					
+
 				</div>
-	
+
 		<%
 			} else {
-		%> 
+		%>
 				<div style="text-align:center"><h4> No Products Found! </h4></div>
 		<%      } %>
-		
+
 	</div>
 
 </div>

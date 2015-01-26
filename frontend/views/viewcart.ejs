@@ -1,23 +1,11 @@
-<div class="row">
-   <div class="span3">
-	<%
-		if (header) {
-	%>
-			<ul class="nav nav-tabs nav-stacked">
-			<%- header %>
-			</ul>
-	<%
-		}
-	%>
-   </div>
-
-   <div class="span9">
+<div class="sapphire-general">
+   <div>
 		<%
 		if (bcrum) {
 		%>
-			<ul class="breadcrumb">	
+			<ul class="breadcrumb">
 		<%
-			for(var x in bcrum) { 
+			for(var x in bcrum) {
 			  var css = '';
 			  if (x==bcrum.length-1) {
 				css = 'active';
@@ -27,20 +15,20 @@
 			<%
 				if (css=='') {
 			%>
-				<span class="divider">/</span>
+				<span class="divider">|</span>
 			<%
 				}
 			%>
-			</li>	
-		<%	  
+			</li>
+		<%
 			}
 		%>
 			</ul>
 		<%
 		}
-		%>	
+		%>
 
-			
+
 		<%
 			var totalamount = 0;
 			if (productlist) {
@@ -55,13 +43,13 @@
 				<th class="alert alert-info">Remove</th>
 				<th class="alert alert-info">Total</th>
 			</tr>
-		<%	
-			  for(var x in productlist) { 
+		<%
+			  for(var x in productlist) {
 				var pimage = '';
 				var givemargin = 0;
 				if (productlist[x].productimage) {
-				    pimage = productlist[x].productimage;	
-				    pimage = pimage.split('#');		
+				    pimage = productlist[x].productimage;
+				    pimage = pimage.split('#');
 				}
 		%>
 			<tr>
@@ -69,32 +57,32 @@
 					<%
 						if (pimage[0]) {
 							var thumb = pimage[0].split('.');
-							var thumb = thumb[0] + '.small.' + thumb[1]; 
+							var thumb = thumb[0] + '.small.' + thumb[1];
 					%>
 						<img src="/media/<%= thumb %>" alt="#"/>
-					<% } %>	
+					<% } %>
 				</td>
 				<td><%= productlist[x].name %></td>
 				<td>$<%= session.cartqty[productlist[x].id].price %></td>
 				<td>
-					
-					<input id="pqty<%= productlist[x].id %>" type="text" size="5" 
+
+					<input id="pqty<%= productlist[x].id %>" type="text" size="5"
 					max-length="5" value="<%= session.cartqty[productlist[x].id].qty %>" class="cartqty">
 				<td>
 					<a onclick="updatecart(<%= productlist[x].id %>)" class="btn">Update</a>
 				</td>
-					
+
 				</td>
 				<td><a href='/cart/remove/<%= productlist[x].id %>' class='btn'>Remove</a></td>
 				<td class="paddright">
 				   <span style="float:right">
 				   <% var amt = (session.cartqty[productlist[x].id].price*session.cartqty[productlist[x].id].qty);
-				      totalamount += amt;  		
+				      totalamount += amt;
 				   %>
-				   $<%= amt %></span>			
+				   $<%= amt %></span>
 				</td>
 			</tr>
-			
+
 		<%
 
 			  }
@@ -110,12 +98,12 @@
 			 </div>
 		<%
 			} else {
-		%> 
+		%>
 				<div class="txtcenter"><h4> Sorry! Your Cart Is Empty <h4>
 					<p><a href='/clothes' class="btn btn-primary">Cotinue Purchasing...</a></p>
 				</div>
 		<%      } %>
-		
+
 	</div>
 
 </div>
@@ -130,8 +118,3 @@ function updatecart(pid) {
    window.location = '/cart/update/' + pid + '/' + qty;
 }
 </script>
-	
-
-
-
-  
