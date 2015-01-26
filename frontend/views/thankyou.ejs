@@ -1,23 +1,11 @@
-<div class="row">
-   <div class="span3">
-	<%
-		if (header) {
-	%>
-			<ul class="nav nav-tabs nav-stacked">
-			<%- header %>
-			</ul>
-	<%
-		}
-	%>
-   </div>
-
-   <div class="span9">
+<div class="sapphire-general">
+   <div>
 		<%
 		if (bcrum) {
 		%>
-			<ul class="breadcrumb">	
+			<ul class="breadcrumb">
 		<%
-			for(var x in bcrum) { 
+			for(var x in bcrum) {
 			  var css = '';
 			  if (x==bcrum.length-1) {
 				css = 'active';
@@ -27,25 +15,22 @@
 			<%
 				if (css=='') {
 			%>
-				<span class="divider">/</span>
+				<span class="divider">|</span>
 			<%
 				}
 			%>
-			</li>	
-		<%	  
+			</li>
+		<%
 			}
 		%>
 			</ul>
 		<%
 		}
-		%>	
-			
-		<h5 class="thankyou">You have successfully placed order with us.</h5>			
-		
+		%>
+
+		<h5 class="thankyou">You have successfully placed order with us.</h5>
+
     </div>
 
 </div>
 
-
-
-  

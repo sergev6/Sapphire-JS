@@ -92,8 +92,9 @@
     </div>
 
     <div flex layout="row" layout-align="end center" layout-padding>
-    <span class="fa fa-shopping-cart"></span><%= session.cart.length %>
-
+    <a href="/cart/view">
+      <span class="fa fa-shopping-cart"></span><%= session.cart.length %>
+    </a>
     </div>
   </div>
 
