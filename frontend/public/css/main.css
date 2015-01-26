@@ -18,6 +18,7 @@ header .md-button {
 .sapphire-header-inner {
     margin: 0 auto;
     max-width: 980px;
+    width: 100%;
 }
 
 .sapphire-logo {
@@ -83,10 +84,7 @@ header .md-button {
     background: -ms-linear-gradient(45deg, #eaeaea 0%,#ffffff 100%); /* IE10+ */
     background: linear-gradient(45deg, #eaeaea 0%,#ffffff 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    padding-bottom: 120px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 120px;
+    padding: 70px 15px;
     text-align: center;
 }
 
@@ -104,11 +102,15 @@ header .md-button {
 .sapphire-brand-details {
     margin: 0 auto;
     max-width: 980px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
 }
 
 .sapphire-brand-details h2 {
     color: #4b4b4b;
     font-weight: 500;
+    margin-top: 30px;
     text-align: center;
 }
 
@@ -130,6 +132,12 @@ header .md-button {
 
 .sapphire-brand-details md-card {
     border-radius: 0;
+}
+
+.sapphire-benefits h2 {
+    color: rgb(33,150,243);
+    margin-bottom: 0;
+    text-align: center;
 }
 
 .checkout .md-shadow-bottom-z-1,
