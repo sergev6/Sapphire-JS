@@ -98,7 +98,7 @@ header .md-button {
 }
 
 .sub-heading {
-    line-height: 0;
+    line-height: initial;
 }
 
 .sapphire-brand-details {
