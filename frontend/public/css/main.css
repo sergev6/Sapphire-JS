@@ -345,7 +345,7 @@ footer .copyright {
 
 .sapphire-auth {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 768px;
     padding-top: 60px;
     text-align: center;
     width: 100%;
@@ -359,7 +359,7 @@ footer .copyright {
 
 .sapphire-general {
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 768px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 60px;
@@ -367,7 +367,7 @@ footer .copyright {
 }
 
 .sapphire-general h2 {
-    font-weight: 300;
+    font-weight: 500;
     margin-bottom: 0;
     text-align: center;
 }
