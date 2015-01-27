@@ -222,8 +222,8 @@ header .fa-bars {
 
 md-sidenav {
     font-weight: 700;
-    min-width: 220px !important;
-    width: 220px !important;
+    min-width: 175px !important;
+    width: 175px !important;
 }
 
 md-sidenav,
@@ -392,7 +392,7 @@ a:hover {
 span.fa.fa-shopping-cart {
     line-height: 42px;
     font-size: 1.25em;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 /* ==========================================================================
