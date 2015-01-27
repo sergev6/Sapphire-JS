@@ -1,23 +1,11 @@
-<div class="row">
-   <div class="span3">
-	<%
-		if (header) {
-	%>
-			<ul class="nav nav-tabs nav-stacked">
-			<%- header %>
-			</ul>
-	<%
-		}
-	%>
-   </div>
-
-   <div class="span9">
+<div class="sapphire-general">
+   <div>
 		<%
 		if (bcrum) {
 		%>
-			<ul class="breadcrumb">	
+			<ul class="breadcrumb">
 		<%
-			for(var x in bcrum) { 
+			for(var x in bcrum) {
 			  var css = '';
 			  if (x==bcrum.length-1) {
 				css = 'active';
@@ -27,24 +15,24 @@
 			<%
 				if (css=='') {
 			%>
-				<span class="divider">/</span>
+				<span class="divider">|</span>
 			<%
 				}
 			%>
-			</li>	
-		<%	  
+			</li>
+		<%
 			}
 		%>
 			</ul>
 		<%
 		}
-		%>	
-		
+		%>
+
 		<form name="checkout" id="checkout" method="post" action="/placeorder">
 		<div class="accordion-group">
-		    <div class="alert alert-info" data-toggle="collapse" href="#collapse1" style="margin-bottom:0px;">                     
+		    <div class="alert alert-info" data-toggle="collapse" href="#collapse1" style="margin-bottom:0px;">
 		      Billing Information
-		     </div>   
+		     </div>
 		     <div id="collapse1" class="accordion-body collapse col1back">
 					<br>
 					<table cellspacing=0 cellspadding=0 class="coltbmargin">
@@ -114,11 +102,11 @@
 
 					<tr>
 						<td>
-						<input id="city" name="city" class="required wid250" type="text" >	
+						<input id="city" name="city" class="required wid250" type="text" >
 						</td>
 
 						<td>
-						<input id="state" name="state" class="required wid250" type="text" >	
+						<input id="state" name="state" class="required wid250" type="text" >
 						</td>
 					</tr>
 
@@ -399,24 +387,24 @@
 					<tr>
 						<td colspan="2">
 							<input type="radio" name="shipto" value="1" onclick="toggle_ship(1)"  />
-							&nbsp;Ship to this address &nbsp; <input type="radio" name="shipto" 
+							&nbsp;Ship to this address &nbsp; <input type="radio" name="shipto"
 							value="2" checked="checked" onclick="toggle_ship(2)" />&nbsp;Ship to different address
 						</td>
-					</tr>			
+					</tr>
 
-					
+
 					</tbody>
 					</table>
 
 
 		       <br><br>
 		     </div>
-		     <div class="alert alert-info" data-toggle="collapse" href="#collapse2" style="margin-bottom:0px;">                     
+		     <div class="alert alert-info" data-toggle="collapse" href="#collapse2" style="margin-bottom:0px;">
 		       Shipping Information
-	             </div>   
+	             </div>
 		     <div id="collapse2" class="accordion-body collapse" style="background-color:#ffffff;">
 			<br>
-				
+
 
 
 			<table cellspacing=0 cellspadding=0 class="coltbmargin" >
@@ -486,11 +474,11 @@
 
 					<tr>
 						<td>
-						<input id="scity" name="scity" class="required wid250" type="text" >	
+						<input id="scity" name="scity" class="required wid250" type="text" >
 						</td>
 
 						<td>
-						<input id="sstate" name="sstate" class="required wid250" type="text" >	
+						<input id="sstate" name="sstate" class="required wid250" type="text" >
 						</td>
 					</tr>
 
@@ -771,22 +759,22 @@
 
 					</tbody>
 					</table>
-		       
-		       <br><br>
-		     </div>	
 
-		     <div class="alert alert-info" data-toggle="collapse" href="#collapse3" style="margin-bottom:0px;">                     
+		       <br><br>
+		     </div>
+
+		     <div class="alert alert-info" data-toggle="collapse" href="#collapse3" style="margin-bottom:0px;">
 		      Payment Information
-		     </div>   
+		     </div>
 		     <div id="collapse3" class="accordion-body collapse" style="background-color:#ffffff;">
 			<br>
 			<div class="coltbmargin">
 			<input type="radio" name="paymentmethod" checked="checked" value="cod">&nbsp; Cash On Delivery<br>
 			<br>
 			</div>
-		     </div>	
-		</div>	
-		
+		     </div>
+		</div>
+
 		<br>
 		<div class="pull-right">
 			<input type="submit" class="btn btn-primary" value="Place Order">
@@ -815,33 +803,33 @@ jQuery(document).ready( function () {
 function toggle_ship(id) {
 	if (id==1) {
 		jQuery("#sfirstname").val(jQuery("#firstname").val());
-		jQuery("#slastname").val(jQuery("#lastname").val());	
-		jQuery("#scompany").val(jQuery("#company").val());	
-		jQuery("#semail").val(jQuery("#email").val());	
-		jQuery("#saddress1").val(jQuery("#address1").val());	
-		jQuery("#saddress2").val(jQuery("#address2").val());	
-		jQuery("#scity").val(jQuery("#city").val());	
-		jQuery("#sstate").val(jQuery("#state").val());	
-		jQuery("#sstate").val(jQuery("#state").val());	
-		jQuery("#szipcode").val(jQuery("#zipcode").val());	
+		jQuery("#slastname").val(jQuery("#lastname").val());
+		jQuery("#scompany").val(jQuery("#company").val());
+		jQuery("#semail").val(jQuery("#email").val());
+		jQuery("#saddress1").val(jQuery("#address1").val());
+		jQuery("#saddress2").val(jQuery("#address2").val());
+		jQuery("#scity").val(jQuery("#city").val());
+		jQuery("#sstate").val(jQuery("#state").val());
+		jQuery("#sstate").val(jQuery("#state").val());
+		jQuery("#szipcode").val(jQuery("#zipcode").val());
 		jQuery('#scountry option[value="'+jQuery("#country").val()+'"]').attr("selected","selected");
-		jQuery("#stelephone").val(jQuery("#telephone").val());	
-		jQuery("#sfax").val(jQuery("#fax").val());	
+		jQuery("#stelephone").val(jQuery("#telephone").val());
+		jQuery("#sfax").val(jQuery("#fax").val());
 	} else {
 		jQuery("#sfirstname").val("");
-		jQuery("#slastname").val("");	
-		jQuery("#scompany").val("");	
-		jQuery("#semail").val("");	
-		jQuery("#saddress1").val("");	
-		jQuery("#saddress2").val("");	
-		jQuery("#scity").val("");	
-		jQuery("#sstate").val("");	
-		jQuery("#sstate").val("");	
-		jQuery("#szipcode").val("");	
+		jQuery("#slastname").val("");
+		jQuery("#scompany").val("");
+		jQuery("#semail").val("");
+		jQuery("#saddress1").val("");
+		jQuery("#saddress2").val("");
+		jQuery("#scity").val("");
+		jQuery("#sstate").val("");
+		jQuery("#sstate").val("");
+		jQuery("#szipcode").val("");
 		jQuery('#scountry option[value=""]').attr("selected","selected");
-		jQuery("#stelephone").val("");	
-		jQuery("#sfax").val("");	
+		jQuery("#stelephone").val("");
+		jQuery("#sfax").val("");
 	}
 
 }
-</script>  
+</script>

@@ -1,23 +1,11 @@
-<div class="row">
-   <div class="span3">
-	<%
-		if (header) {
-	%>
-			<ul class="nav nav-tabs nav-stacked">
-			<%- header %>
-			</ul>
-	<%
-		}
-	%>
-   </div>
-
-   <div class="span9">
+<div class="sapphire-general">
+   <div layout="row" layout-wrap>
 		<%
 		if (bcrum) {
 		%>
-			<ul class="breadcrumb">	
+			<ul class="breadcrumb" layout="row" flex="100">
 		<%
-			for(var x in bcrum) { 
+			for(var x in bcrum) {
 			  var css = '';
 			  if (x==bcrum.length-1) {
 				css = 'active';
@@ -27,64 +15,64 @@
 			<%
 				if (css=='') {
 			%>
-				<span class="divider">/</span>
+				<span class="divider">|</span>
 			<%
 				}
 			%>
-			</li>	
-		<%	  
+			</li>
+		<%
 			}
 		%>
 			</ul>
 		<%
 		}
-		%>	
+		%>
 
-			
+
 		<%
 			if (productlist) {
-			  for(var x in productlist) { 
+			  for(var x in productlist) {
 				var pimage = '';
 				var givemargin = 0;
 				if (productlist[x].productimage) {
-				    pimage = productlist[x].productimage;	
-				    pimage = pimage.split('#');		
+				    pimage = productlist[x].productimage;
+				    pimage = pimage.split('#');
 				}
 				if (x%3==0) { givemargin = 1; }
 
 		%>
-				<div class="span3 prodlist" style="<%=(givemargin==1)?'margin-left:0px':'' %>;">
-				<div class="thumbnail">
+				<div flex="33" class="prodlist" style="<%=(givemargin==1)?'margin-left:0px':'' %>;">
+				<div class="thumbnail md-whiteframe-z1" layout-padding>
 					<%
 						if (pimage[0]) {
 							var thumb = pimage[0].split('.');
 							if (thumb[1]=='jpeg') {
 								thumb[1] = 'jpg';
-							}			
-							var thumb = thumb[0] + '.medium.' + thumb[1]; 
+							}
+							var thumb = thumb[0] + '.medium.' + thumb[1];
 					%>
 						<img src="/media/<%= thumb %>" alt="#"/>
 					<% } %>
 					<div class="caption txtcenter">
-						<a href="/<%- productlist[x].url_key %>"><%= productlist[x].name %></a>
+						<a href="/<%- productlist[x].url_key %>"><h3><%= productlist[x].name %></h3></a>
 											</div>
 					<p class="prodprice">$<%- productlist[x].price.toPrecision(5) %></p>
 					<p class="txtcenter">
-						<a href="/cart/add/<%= productlist[x].id %>" class="btn btn-primary">Add to Cart</a>
+					<md-button class="md-raised md-primary" ng-href="/cart/add/<%= productlist[x].id %>">Add to Cart</md-button>
 					</p>
 				</div>
 				</div>
 
-		<%	  
+		<%
 			  }
 		%>
 		<%
 			} else {
-		%> 
+		%>
 				<div style="text-align:center"><h4> No Products Found! <h4>
 				</div>
 		<%      } %>
-		
+
 	</div>
 
 </div>
