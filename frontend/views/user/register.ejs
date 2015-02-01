@@ -2,26 +2,55 @@
 <h2>Register</h2>
 <a href="/user/login">Do you already have an account?</a>
 <hr>
-<div>
-	<form action="/user/register" method="post" id="register_form">
-        <div>
-	<label>First Name</label>
-        <input type="text" placeholder="" class="span3" name="first_name">
-        <label>Last Name</label>
-        <input type="text" placeholder="" class="span3" name="last_name">
-        <label>Display Name *</label>
-        <input type="text" placeholder="" class="span3 required" name="nickname">
+<div layout="column"  layout-align="start center" flex layout-fill layout-padding layout-margin>
+	<form flex layout-fill action="/user/register" method="post" id="register_form" flex layout="column" style="text-align: initial;">
+
+	<div layout layout-sm="column">
+
+		<md-input-container flex>
+		  <label>First Name</label>
+		  <input type="text" name="first_name" placeholder="Enter your first name">
+		</md-input-container>
+
+		<md-input-container flex>
+		  <label>Last Name</label>
+		  <input type="text" name="last_name" placeholder="Enter your last name">
+		</md-input-container>
+
 	</div>
-	<div>
-	<label>Email *</label>
-        <input type="text" placeholder="" class="span3 required email" name="email_id">
-        <label>Password *</label>
-        <input type="password" placeholder="" class="span3 required" name="password">
-        <label>Retype Password *</label>
-        <input type="password" placeholder="" class="span3 required equalTo password " name="retypepassword">
+
+	<div layout layout-sm="column">
+
+		<md-input-container flex>
+		  <label>Username</label>
+		  <input type="text" name="nickname" placeholder="Choose a username">
+		</md-input-container>
+
+		<md-input-container flex>
+		  <label>Email</label>
+		  <input type="text" name="email_id" placeholder="Enter your email address">
+		</md-input-container>
+
 	</div>
+
+	<div layout layout-sm="column">
+
+		<md-input-container flex>
+		  <label>Password</label>
+		  <input type="text" name="password" placeholder="Choose a password">
+		</md-input-container>
+
+		<md-input-container flex>
+		  <label>Retype Password</label>
+		  <input type="text" name="retypepassword" placeholder="Choose a password">
+		</md-input-container>
+
+	</div>
+
 	<div style="clear:both"></div>
-       <br>
+
+	<br>
+
        <button class="btn btn-primary" type="submit" align="center">Register</button>
       </form>
 </div>

@@ -1,15 +1,23 @@
 <div class="sapphire-auth">
-    <form class="well form-signin" method="post" id="login_form">
+    <form lex layout-fill class="well form-signin" method="post" id="login_form" style="text-align: initial;">
 	<h2>Login</h2>
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-large icon-envelope"></i></span>
-            <input class="span3 required" id="username" type="text" name="username" placeholder="Username">
-        </div>
-        <div class="input-prepend">
-            <span class="add-on"><i class="icon-large icon-key"></i></span>
-            <input class="span3 required" id="userpass" type="password" name="userpass" placeholder="Password">
-        </div>
-	<div>
+	<hr>
+
+	<div layout="column">
+
+	    <md-input-container flex>
+	      <label>Username</label>
+	      <input id="username" type="text" name="username" placeholder="Enter your username">
+	    </md-input-container>
+
+	    <md-input-container flex>
+	      <label>Password</label>
+	      <input id="userpass" type="password" name="userpass" placeholder="Enter your password">
+	    </md-input-container>
+
+	</div>
+
+	<div style="text-align: center;">
         <button class="btn btn-primary" type="submit" name="submit">Sign in</button><br>
 	<br>
 	<a href="/user/register">Are you new user?</a>
@@ -18,4 +26,3 @@
     </form>
 </div>
 <script src="/js/user/login.js"></script>
-

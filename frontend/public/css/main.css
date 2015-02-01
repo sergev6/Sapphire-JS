@@ -239,6 +239,7 @@ md-sidenav md-toolbar {
 }
 
 md-sidenav md-toolbar.md-default-theme {
+    box-shadow: none;
     background-color: rgb(33,150,243);
 }
 
